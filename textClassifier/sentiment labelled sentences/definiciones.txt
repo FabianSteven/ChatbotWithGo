@@ -1,0 +1,7 @@
+greeting = 1
+liked = 2
+disliked = 3
+food,order,piza = 4
+food,order,hamburger = 5
+food,order,salad = 6
+food,order,soda = 7

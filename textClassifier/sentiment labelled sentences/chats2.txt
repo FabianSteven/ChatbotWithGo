@@ -1,0 +1,40 @@
+hola	1
+cómo estás?	1
+buenos días	1
+buenas tardes	1
+buenas noches	1
+la comida estuvo excelente	2
+me encantó la comida	2
+la comida estuvo de lujo	2
+que comida tan buena	2
+genial la comida	2
+la comida estuvo esplendida	2
+wow que rica estuvo	2
+que comida tan magnifica	2
+la comida fue una delicia	2
+que deleite de comida	2
+que bien sazonada estuvo la comida	2
+que placer comer esta comida	2
+no me gustó la comida	3
+la comida estuvo horrible	3
+que comida tan fea	3
+que asco de comida	3
+la comida estuvo espantosa	3
+la comida estvo insipida	3
+que comida tan insulsa	3
+el sabor era soso	3
+no me gusto la comida	3
+la comida estuvo repugnante	3
+la comida estuvo desabrida	3
+quiero ordenar pizza	4
+por favor quiero una pizza	4
+pizza por favor	4
+quiero ordenar hamburguesa	5
+por favor quiero una hamburguesa	5
+hamburguesa por favor	5
+quiero ordenar ensalada	6
+por favor quiero una ensalada	6
+ensalada por favor	6
+quiero ordenar gaseos	7
+por favor quiero una gaseosa	7
+gaseosa por favor	7
