@@ -5,7 +5,7 @@ const (
 	greeting       = "greeting"
 	liked          = "liked"
 	disliked       = "disliked"
-	orderPiza      = "orderPiza"
+	orderPizza     = "orderPizza"
 	orderHamburger = "orderHamburger"
 	orderSalad     = "orderSalad"
 	orderSoda      = "orderSoda"
@@ -32,7 +32,7 @@ func newClassifier() *classifier {
 		greeting:       []string{},
 		liked:          []string{},
 		disliked:       []string{},
-		orderPiza:      []string{},
+		orderPizza:     []string{},
 		orderHamburger: []string{},
 		orderSalad:     []string{},
 		orderSoda:      []string{},
@@ -59,7 +59,7 @@ func (c classifier) classify(sentence string) map[string]float64 {
 	greetProb := c.probability(words, greeting)
 	likedProb := c.probability(words, liked)
 	dislikedProb := c.probability(words, disliked)
-	pizaProb := c.probability(words, orderPiza)
+	pizaProb := c.probability(words, orderPizza)
 	hamburgerProb := c.probability(words, orderHamburger)
 	saladProb := c.probability(words, orderSalad)
 	sodaProb := c.probability(words, orderSoda)
@@ -67,7 +67,7 @@ func (c classifier) classify(sentence string) map[string]float64 {
 		greeting:       greetProb,
 		liked:          likedProb,
 		disliked:       dislikedProb,
-		orderPiza:      pizaProb,
+		orderPizza:     pizaProb,
 		orderHamburger: hamburgerProb,
 		orderSalad:     saladProb,
 		orderSoda:      sodaProb,
@@ -87,7 +87,7 @@ func (c *classifier) addWord(word, class string) {
 			greeting:       0,
 			liked:          0,
 			disliked:       0,
-			orderPiza:      0,
+			orderPizza:     0,
 			orderHamburger: 0,
 			orderSalad:     0,
 			orderSoda:      0,
@@ -99,7 +99,7 @@ func (c *classifier) addWord(word, class string) {
 
 // priorProb devuelve la probabilidad previa de cada clase del clasificador
 func (c classifier) priorProb(class string) float64 {
-	return float64(len(c.dataset[class])) / float64(len(c.dataset[greeting])+len(c.dataset[liked])+len(c.dataset[disliked])+len(c.dataset[orderPiza])+len(c.dataset[orderHamburger])+len(c.dataset[orderSalad])+len(c.dataset[orderSoda]))
+	return float64(len(c.dataset[class])) / float64(len(c.dataset[greeting])+len(c.dataset[liked])+len(c.dataset[disliked])+len(c.dataset[orderPizza])+len(c.dataset[orderHamburger])+len(c.dataset[orderSalad])+len(c.dataset[orderSoda]))
 }
 
 // totalWordCount devuelve el recuento de palabras de una clase (duplicada también cuenta)
@@ -115,7 +115,7 @@ func (c classifier) totalWordCount(class string) int {
 		greetCount += wf.counter[greeting]
 		likedCount += wf.counter[liked]
 		dislikedCount += wf.counter[disliked]
-		pizaCount += wf.counter[orderPiza]
+		pizaCount += wf.counter[orderPizza]
 		hamburgerCount += wf.counter[orderHamburger]
 		saladCount += wf.counter[orderSalad]
 		sodaCount += wf.counter[orderSoda]
@@ -126,7 +126,7 @@ func (c classifier) totalWordCount(class string) int {
 		return likedCount
 	} else if class == disliked {
 		return dislikedCount
-	} else if class == orderPiza {
+	} else if class == orderPizza {
 		return pizaCount
 	} else if class == orderHamburger {
 		return hamburgerCount
@@ -152,7 +152,7 @@ func (c classifier) totalDistinctWordCount() int {
 		greetCount += zeroOneTransform(wf.counter[greeting])
 		likedCount += zeroOneTransform(wf.counter[liked])
 		dislikedCount += zeroOneTransform(wf.counter[disliked])
-		pizaCount += zeroOneTransform(wf.counter[orderPiza])
+		pizaCount += zeroOneTransform(wf.counter[orderPizza])
 		hamburgerCount += zeroOneTransform(wf.counter[orderHamburger])
 		saladCount += zeroOneTransform(wf.counter[orderSalad])
 		sodaCount += zeroOneTransform(wf.counter[orderSoda])
@@ -173,7 +173,7 @@ func (c classifier) probability(words []string, class string) float64 {
 	for _, w := range words {
 		count := 0
 		if wf, ok := c.words[w]; ok {
-			count += (wf.counter[greeting] + wf.counter[liked] + wf.counter[disliked] + wf.counter[orderPiza] + wf.counter[orderHamburger] + wf.counter[orderSalad] + wf.counter[orderSoda])
+			count += (wf.counter[greeting] + wf.counter[liked] + wf.counter[disliked] + wf.counter[orderPizza] + wf.counter[orderHamburger] + wf.counter[orderSalad] + wf.counter[orderSoda])
 		}
 		prob /= (float64((count + 1)) / float64((c.totalWordCount("") + c.totalDistinctWordCount())))
 	}
